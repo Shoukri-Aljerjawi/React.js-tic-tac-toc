@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -10,6 +11,7 @@
   flex-wrap: wrap;
   margin: 0 auto;
   background: #c4c4c4;
+ 
 }
 
 .square {
@@ -19,8 +21,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 45px;
+  font-size: 80px;
   user-select: none;
+  cursor: pointer;
 }
 
 #game {
@@ -28,6 +31,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  font-family: 'Roboto', sans-serif;
 }
 
 .square:hover {
@@ -50,10 +54,44 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin-top: 30px;
+  margin-top: -40px;
   margin-bottom: 30px;
 }
+.square:nth-child(7),
+.square:nth-child(8),
+.square:nth-child(9) {
+  border-bottom: 0;
+}
 
+.square:nth-child(1),
+.square:nth-child(2),
+.square:nth-child(3) {
+  border-top: 0;
+}
+
+.square:nth-child(3n + 1) {
+  border-left: 0;
+}
+
+.square:nth-child(3n) {
+  border-right: 0;
+}
+.players:nth-child(1) {
+  border-left: 0;
+  border-top: 0;
+}
+.players:nth-child(2) {
+  border-right: 0;
+  border-top: 0;
+}
+.players:nth-child(3) {
+  border-left: 0;
+  border-bottom: 0;
+}
+.players:nth-child(4) {
+  border-right: 0;
+  border-bottom: 0;
+}
 .startname {
   width: 80%;
   margin: 0 auto;
@@ -92,8 +130,14 @@ h2 {
 .logo {
   transform: rotate(-45deg);
   width: 300px;
-  margin-right: 800px;
-  margin-top: 3px;
-  display: flex;
+  position: relative;
+  top: 80px;
+  right: 350px;
 }
 
+#X {
+  color: blue;
+}
+#O {
+  color: red;
+}

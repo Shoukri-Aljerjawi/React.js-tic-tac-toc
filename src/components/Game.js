@@ -12,7 +12,10 @@ function Game() {
   let [player2Score, setPlayer2Score] = useState(0);
 
   const clicked = (event) => {
-    if (board[event.target.dataset.square] == null && gameEnded == false) {
+    if (
+      board[event.target.dataset.square] == null &&
+      gameEnded == false
+    ) {
       board[event.target.dataset.square] = turn;
       if (turn == 'X') {
         setTurn('O');
@@ -20,7 +23,8 @@ function Game() {
         setTurn('X');
       }
 
-      setTotalMoves(totalMoves + 1);
+      totalMoves++;
+      setTotalMoves(totalMoves);
       checkWinner();
     } else {
       console.log('You cannot override the value of that block!');
@@ -60,14 +64,12 @@ function Game() {
       ) {
         if (board[resultSet[i][0]] == 'X') {
           setGameEnded(true);
-          alert('x winner');
+          alert(`${player1} winner`);
           setPlayer1Score(player1Score + 1);
         } else if (board[resultSet[i][0]] == 'O') {
           setGameEnded(true);
-          alert('O winner');
+          alert(`${player2} winner`);
           setPlayer2Score(player2Score + 1);
-        } else if (totalMoves === 9) {
-          alert('Its a draw');
         }
       }
     }
@@ -91,39 +93,39 @@ function Game() {
     return (
       <div>
         <div id='game'>
+          <img className='logo' src={logo} alt='Logo' />
           <div id='head'>
-            <img className='logo' src={logo} alt='Logo' />
             <div className='players'>{player1} </div>
             <div className='players'>{player2} </div>
             <div className='players'>{player1Score}</div>
             <div className='players'>{player2Score}</div>
           </div>
           <div id='board' onClick={(e) => clicked(e)}>
-            <div className='square' data-square='0'>
+            <div className='square' id={board[0]} data-square='0'>
               {board[0]}
             </div>
-            <div className='square' data-square='1'>
+            <div className='square' id={board[1]} data-square='1'>
               {board[1]}
             </div>
-            <div className='square' data-square='2'>
+            <div className='square' id={board[2]} data-square='2'>
               {board[2]}
             </div>
-            <div className='square' data-square='3'>
+            <div className='square' id={board[3]} data-square='3'>
               {board[3]}
             </div>
-            <div className='square' data-square='4'>
+            <div className='square' id={board[4]} data-square='4'>
               {board[4]}
             </div>
-            <div className='square' data-square='5'>
+            <div className='square' id={board[5]} data-square='5'>
               {board[5]}
             </div>
-            <div className='square' data-square='6'>
+            <div className='square' id={board[6]} data-square='6'>
               {board[6]}
             </div>
-            <div className='square' data-square='7'>
+            <div className='square' id={board[7]} data-square='7'>
               {board[7]}
             </div>
-            <div className='square' data-square='8'>
+            <div className='square' id={board[8]} data-square='8'>
               {board[8]}
             </div>
           </div>
